@@ -11,11 +11,15 @@ connectDB();
 
 app.use(
   cors({
-    origin: "http://localhost:5173", // frontend
+    origin: [
+      "http://localhost:5173", 
+      "https://neusoftix-frentend.vercel.app",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
+
 // Serve uploaded images
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
